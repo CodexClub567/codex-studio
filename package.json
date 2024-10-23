@@ -3,37 +3,37 @@
   "version": "1.0.0",
   "description": "Codex Learners Project",
   "scripts": {
-    "install": "npm ci",  // Installs exact versions from package-lock.json
-    "lock:generate": "npm install",  // Generates or updates package-lock.json based on package.json
-    "lock:check": "npm audit",  // Checks for security vulnerabilities in the lockfile
-    "lock:update": "npm update",  // Updates package-lock.json to the latest versions allowed by package.json
-    "preinstall": "npx npm-force-resolutions",  // Forces specific dependency resolutions
-    "postinstall": "npm audit fix",  // Automatically fixes any known vulnerabilities after installation
-    "start": "react-scripts start",  // Starts the React app (assuming you're using React)
-    "build": "react-scripts build",  // Builds the React app for production
-    "test": "react-scripts test",  // Runs the tests
-    "eject": "react-scripts eject"  // Ejects from Create React App setup (use with caution)
+    "install": "npm ci",
+    "lock:generate": "npm install",
+    "lock:check": "npm audit",
+    "lock:update": "npm update",
+    "preinstall": "npx npm-force-resolutions",
+    "postinstall": "npm audit fix",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
   },
   "dependencies": {
-    "react": "^18.0.0",  // React version
-    "react-dom": "^18.0.0",  // React DOM
-    "react-router-dom": "^6.3.0",  // React Router for routing
-    "@babel/core": "^7.15.8",  // Babel for transpiling JavaScript
-    "browserslist": "^4.24.0",  // For browser compatibility
-    "bootstrap": "^5.1.0"  // Bootstrap for styling
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0",
+    "react-router-dom": "^6.3.0",
+    "@babel/core": "^7.15.8",
+    "browserslist": "^4.24.0",
+    "bootstrap": "^5.1.0"
   },
   "devDependencies": {
-    "eslint": "^8.57.1",  // ESLint for code linting
-    "@eslint/eslintrc": "^2.1.4",  // ESLint configuration
-    "eslint-plugin-react": "^7.28.0",  // React-specific linting rules
-    "eslint-webpack-plugin": "^3.2.0"  // Webpack plugin for ESLint
+    "eslint": "^8.57.1",
+    "@eslint/eslintrc": "^2.1.4",
+    "eslint-plugin-react": "^7.28.0",
+    "eslint-webpack-plugin": "^3.2.0"
   },
   "resolutions": {
-    "react": "^18.0.0",  // Forces specific React version
-    "react-dom": "^18.0.0"  // Forces specific React DOM version
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0"
   },
   "engines": {
-    "node": ">=14.x"  // Specifies required Node.js version
+    "node": ">=14.x"
   },
   "license": "MIT"
 }
