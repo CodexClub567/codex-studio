@@ -1,0 +1,15 @@
+/*--------------------------------------------------------------
+# Icons
+--------------------------------------------------------------*/
+.Codex-svg-iconset {
+	display: inline-flex;
+	align-self: center;
+}
+.Codex-svg-iconset svg {
+	height:1em;
+	width:1em;
+}
+.Codex-svg-iconset.svg-baseline svg {
+	top: .125em;
+	position: relative;
+}
