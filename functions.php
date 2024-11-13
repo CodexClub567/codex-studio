@@ -1,31 +1,52 @@
 <?php
 /**
- * codex functions and definitions
- *
- * This file must be parseable by PHP 5.2.
- *
- * @link https://developer.wordpress.org/themes/basics/theme-functions/
+ * The `codex()` function.
  *
  * @package codex
  */
 
-define( 'codex_VERSION', '1.2.9' );
-define( 'codex_MINIMUM_WP_VERSION', '6.0' );
-define( 'codex_MINIMUM_PHP_VERSION', '7.4' );
+namespace codex;
 
-// Bail if requirements are not met.
-if ( version_compare( $GLOBALS['wp_version'], codex_MINIMUM_WP_VERSION, '<' ) || version_compare( phpversion(), codex_MINIMUM_PHP_VERSION, '<' ) ) {
-	require get_template_directory() . '/inc/back-compat.php';
-	return;
+use codex\Template_Tags;
+use codex\Theme;
+use function get_template_directory;
+
+/**
+ * Provides access to all available template tags of the theme.
+ *
+ * When called for the first time, the function will initialize the theme.
+ *
+ * @return Template_Tags Template tags instance exposing template tag methods.
+ */
+function codex() : Template_Tags {
+	static $theme = null;
+
+	if ( null === $theme ) {
+		$theme = Theme::instance();
+	}
+
+	return $theme->template_tags();
 }
-// Include WordPress shims.
-require get_template_directory() . '/inc/wordpress-shims.php';
+// Load the CSS class.
+require get_template_directory() . '/inc/class-codex-css.php';
+// Load the Local Font class.
+require get_template_directory() . '/inc/class-local-gfonts.php';
 
-// Load the `codex()` entry point function.
-require get_template_directory() . '/inc/class-theme.php';
+// Load the Customizer class.
+require get_template_directory() . '/inc/customizer/class-theme-customizer.php';
 
-// Load the `codex()` entry point function.
-require get_template_directory() . '/inc/functions.php';
+// Load Settings Page Class.
+require get_template_directory() . '/inc/dashboard/class-theme-dashboard.php';
 
-// Initialize the theme.
-call_user_func( 'codex\codex' );
+// Load the Meta class.
+require get_template_directory() . '/inc/meta/class-theme-meta.php';
+
+// Load the template functions.
+require get_template_directory() . '/inc/template-functions/header-functions.php';
+require get_template_directory() . '/inc/template-functions/title-functions.php';
+require get_template_directory() . '/inc/template-functions/single-functions.php';
+require get_template_directory() . '/inc/template-functions/footer-functions.php';
+require get_template_directory() . '/inc/template-functions/archive-functions.php';
+
+// Load the template hooks.
+require get_template_directory() . '/inc/template-hooks.php';
